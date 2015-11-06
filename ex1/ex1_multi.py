@@ -22,6 +22,7 @@ def read_file(fr='ex1\ex1data1.txt'):
         scatter_plot(xx, yy)
     elif len(xx[0]) == 2:
         scatter_plot3d(xx, yy)
+    fp.close()
     return conv_matrix(xx, yy)
 
 

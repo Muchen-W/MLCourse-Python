@@ -7,7 +7,7 @@ from matplotlib.ticker import LinearLocator, FormatStrFormatter
 from matplotlib import cm
 
 
-def read_file(fr='ex1data1.txt'):
+def read_file(fr='ex1\ex1data1.txt'):
     fp = open(fr, 'r')
     lines = fp.read()
     lines = lines.split()
@@ -18,6 +18,7 @@ def read_file(fr='ex1data1.txt'):
         xx.append([float(x)])
         yy.append([float(y)])
     scatter_plot(xx, yy)
+    fp.close()
     return conv_matrix(xx, yy)
 
 
