@@ -2,12 +2,8 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
 
-import copy
-from matplotlib.ticker import LinearLocator, FormatStrFormatter
-from matplotlib import cm
 
-
-def read_file(fr='ex1\ex1data1.txt'):
+def read_file(fr='ex1data1.txt'):
     fp = open(fr, 'r')
     lines = fp.read()
     lines = lines.split()
@@ -29,7 +25,7 @@ def read_file(fr='ex1\ex1data1.txt'):
 def scatter_plot(xx, yy):
     plt.figure()
     plt.scatter(xx, yy, marker='x', c='r')
-    #plt.show()
+    # plt.show()
 
 
 def scatter_plot3d(xx, yy):
@@ -38,15 +34,15 @@ def scatter_plot3d(xx, yy):
     xs, ys = zip(*xx)
     zs = yy
     ax.scatter(xs, ys, zs, marker='o')
-    #plt.show()
+    # plt.show()
 
 
 def conv_matrix(xx, yy):
     xx = norm_feature(xx)
-    X = [[1] + x for x in xx]
-    theta = [0] * len(X[0])
-    #print(theta, type(theta), len(theta))
-    computeCost(X, yy, theta)
+    X = np.array([[1] + x for x in xx])
+    # theta = [0] * len(X[0])
+    # print(theta, type(theta), len(theta))
+    # computeCost(X, yy, theta)
     return X, yy
 
 
@@ -66,7 +62,7 @@ def computeCost(X, yy, theta):
     J_theta = 0
     for i in range(m):
         J_theta += (np.dot(X[i], theta) - yy[i])**2
-    J_theta *= 1/(2*m)
+    J_theta *= 1 / (2 * m)
     # print(J_theta, theta)
     return J_theta
 
@@ -87,12 +83,12 @@ def gradientDescent(X, yy, alpha=0.1, iterations=50):
 
 
 def main():
-    #X, yy = read_file()
-    X, yy = read_file(fr='ex1\ex1data2.txt')
+    # X, yy = read_file()
+    X, yy = read_file(fr='ex1data2.txt')
     gradientDescent(X, yy)
     plt.show()
-    #print(X)
-    #print(yy)
+    # print(X)
+    # print(yy)
 
 
 if __name__ == '__main__':

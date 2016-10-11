@@ -27,7 +27,6 @@ def scatter_plot(xx, yy):
 def conv_matrix(xx, yy):
     X = np.array([[1] + x for x in xx])
     yy = np.array(yy)
-    theta = [0, 0]
     # print(theta, type(theta), len(theta))
     # computeCost(X, yy, theta)
     return X, yy
